@@ -1,12 +1,11 @@
-// Apni Supabase details yahan dalein (Apne Supabase project settings se dekh kar)
 const SUPABASE_URL = 'https://jmoqwhabpndmmabvgqmr.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_9jtkiG_iU-p9p78FqBLmCA_rAQcwz_N';
 
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 async function fetchJobs() {
     try {
-        const { data, error } = await supabase.from('Job').select('*');
+        const { data, error } = await supabaseClient.from('Job').select('*');
         
         document.getElementById('loading').style.display = 'none';
         
